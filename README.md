@@ -2,14 +2,6 @@
 
 This is a simple task list application built with React and Redux. It allows you to add, mark as done, and remove tasks with deadlines.
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Folder Structure](#folder-structure)
-
-- [License](#license)
-
 ## Installation
 
 1. Clone the repository to your local machine:
@@ -25,8 +17,8 @@ src/ - Contains the source code for the React app.
 components/ - React components used in the app.
 redux/ - Redux setup and actions.
 features/ - Additional features or utilities (e.g., date formatting).
-Contributing
-Contributions are welcome! If you find any issues or have ideas for improvements, please open an issue or create a pull request.
+
+<img src=/public/screen1.jpg width=800px/>
 
 ## License
 This project is licensed under the MIT License. 
