@@ -3,7 +3,6 @@ import InputBar from './components/InputBar'
 import { useSelector } from 'react-redux'
 function App() {
   const tasks = useSelector((state) => state.tasks)
-  console.log(tasks)
   return (
     <div className='flex flex-col items-center'>
       <h1 className='text-3xl my-10 font-bold'>Task List</h1>

@@ -1,27 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+const initialState = JSON.parse(localStorage.getItem('List')) || []
+console.log(initialState)
 const taskSlice = createSlice({
   name: 'tasks',
-  initialState: [{ title: 'Car washing', description: 'important , wedding next month', done: false, date: '2023-06-31' }],
+  initialState: initialState,
   reducers: {
     addTask: {
       reducer: (state, action) => {
-        if (typeof action.payload === 'object') state.push(action.payload)
+        if (typeof action.payload === 'object') {
+          const newState = [...state, action.payload]
+          localStorage.setItem('List', JSON.stringify(newState))
+          return newState
+        }
       }
     },
     removeTask: {
       reducer: (state, action) => {
         const id = action.payload
-        return state.filter((task, index) => index !== id)
+        const newState = state.filter((task, index) => index !== id)
+        console.log(newState)
+        localStorage.setItem('List', JSON.stringify(newState))
+        return newState
       }
     },
     updateTask: {
       reducer: (state, action) => {
         const id = action.payload
-        return state.map((task, index) => {
+        const updatedState = state.map((task, index) => {
           if (index === id) return { ...task, done: true }
           return task
         })
+
+        localStorage.setItem('List', JSON.stringify(updatedState))
+        return updatedState
       }
     }
   }
